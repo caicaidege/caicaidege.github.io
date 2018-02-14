@@ -1,0 +1,456 @@
+
+/* text selection start */
+::selection {
+	background-color: rgba(31, 204, 133, 0.7);
+	color:#fff;
+}
+/* text selection end */
+
+/* public style start */
+h2 {
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+/* public style end */
+
+.main-wrapper {
+    background: url(../img/banner.jpg);
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;  /* 以封面的形式显示大小 */
+}
+
+nav{
+  background: rgba(1, 1, 1, 0.3);
+  height: 50px;
+}
+nav ul{
+  float: right;
+}
+nav ul li, nav .log{
+  display: inline-block;
+  margin-right: 20px;
+  line-height: 50px;
+}
+
+
+.logo{
+  font-size: 20px;
+  padding-left: 40px;
+  height: inherit;
+  float: left;
+  line-height: inherit;
+}
+
+.logo a{
+  color: #fff;
+  text-decoration: none;
+  height: 50px;
+  line-height: 50px;
+
+}
+
+nav ul li a {
+	text-decoration: none;
+	display: inline-block;
+	line-height: inherit;
+	height: inherit; /* 继承 */
+	color: #fff;
+}
+
+
+div{
+  display: block;
+}
+
+
+#banner{
+  background: transparent;
+  height: 700px;
+}
+
+#banner .inner{
+  color: #fff;
+  max-width: 300px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  top: 100px;
+}
+
+#banner .inner h1{
+  font-size: 20px;
+  padding: 5px 10px;
+  max-width: 150px;
+  margin: 0 auto;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+.sub-title{
+  line-height: 20px;
+  margin-top: 20px;
+}
+
+button{
+  border: none;
+  background: #333;
+  color: #eee;
+  margin-top: 20px;
+  padding: 4px 18px;
+  outline: none;
+  cursor: pointer;
+}
+
+#banner .inner button{
+  padding: 8px 35px;
+  background-color: #00B33B;
+  font-size: 12px;
+}
+
+#banner .inner button:hover{
+  background-color: #1FDE5F;
+
+}
+
+#banner .inner .more{
+  display: block;
+  position: relative;
+  top: 230px;
+}
+
+#banner .inner .more-icon{
+  display: block;
+  height: 40px;
+  width: 40px;
+  position: relative;
+  margin: 0 auto;
+  top: 250px;
+  background: url(../img/svg/more.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.green-section{
+  text-align: center;
+  background: rgba(77, 210, 163, 0.9);
+  color: #fff;
+  padding: 50px 0;
+}
+
+.wrapper{
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title{
+    font-size: 20px;
+}
+
+.separator{
+  height: 1px;
+  background-color: white;
+  margin: 20px auto;
+  max-width: 40%;
+  min-width: 20%;
+}
+
+.section-sub-title{
+  font-size: 16px;
+}
+
+.wrapper-icon{
+  margin-top: 150px;
+}
+
+.green-section .wrapper-icon a,
+.green-section .wrapper-icon .icon{
+  display: inline-block;
+}
+
+.green-section .wrapper-icon a{
+  height: 70px;
+  width: 70px;
+  line-height: 70px;
+  margin: 20px 40px;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+  transform:rotate(45deg);
+  -ms-transform:rotate(45deg); 	/* IE 9 */
+	-moz-transform:rotate(45deg); 	/* Firefox */
+	-webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(45deg); 	/* Opera */
+}
+
+.green-section .wrapper-icon .icon{
+  width: 30px;
+  height: 70px;
+  line-height: 70px;
+  transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg); 	/* IE 9 */
+	-moz-transform:rotate(-45deg); 	/* Firefox */
+	-webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(-45deg); 	/* Opera */
+}
+
+
+.document {
+	background: url(../img/svg/document.svg);
+}
+
+.editor {
+	background: url(../img/svg/editor.svg);
+}
+
+.time {
+	background: url(../img/svg/time.svg);
+}
+
+.document,
+.editor,
+.time {
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center center;
+}
+
+/* gray */
+.gray-section{
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+
+.gray-section .article-priview > div{
+  float: left;
+}
+
+/* 奇偶匹配选择器 */
+.gray-section .article-priview:nth-child(odd) {
+	background-color: rgba(255,255,255, 0.2);
+}
+
+.gray-section .img-section{
+  width: 40%;
+  font-size: 0;
+}
+
+.gray-section .img-section img{
+  width: 100%;
+}
+
+.gray-section .text-section{
+  width: 60%;
+}
+
+.gray-section .text-section .text-section-detail{
+  position: relative;
+  top: 100px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.gray-section .text-section-detail p{
+  margin-top: 20px;
+  font-size: 16px;
+  letter-spacing: 3px;
+}
+
+/* purple section start */
+.purple-section {
+    color: white;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    background-color: rgba(147, 112, 219, 0.9);
+}
+
+.purple-section .header-wrapper {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.purple-section .header-wrapper p {
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.purple-section .skills-card-group {
+    width: 90%;
+    margin: 50px auto;
+}
+
+.purple-section .skills-card-group > div {
+    float: left;
+    height: 100%;
+}
+
+.purple-section .skill-card {
+    width: 50%;
+    min-height: 200px;
+    max-height: 350px;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.purple-section .skill-card p {
+    margin-top: 40px;
+    line-height: 30px;
+    font-size: 15px;
+}
+
+.purple-section .skill-card > div {
+    float: left;
+    min-height: 200px;
+}
+
+.purple-section .skill-card > div:first-child {
+    width: 8%;
+}
+
+.purple-section .skill-card > div:last-child {
+    width: 82%;
+    margin: 0 5%
+}
+
+.skill-card:first-child {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.skill-card:nth-child(2) {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.skill-card:nth-child(3) {
+    background-color: rgba(0, 0, 0, 0.14);
+}
+
+.skill-card:nth-child(4) {
+    background-color: rgba(0, 0, 0, 0.20);
+}
+
+.skill-card:nth-child(5) {
+    background-color: rgba(0, 0, 0, 0.26);
+}
+
+.skill-card:nth-child(6) {
+    background-color: rgba(0, 0, 0, 0.32);
+}
+
+.skill-card:nth-child(7) {
+    background-color: rgba(0, 0, 0, 0.38);
+}
+
+.skill-card:nth-child(8) {
+    background-color: rgba(0, 0, 0, 0.44);
+}
+
+/* icon start */
+.technical-skills-01 {
+    background: url(../img/svg/technical-skills-01.svg);
+}
+.technical-skills-02 {
+    background: url(../img/svg/technical-skills-02.svg);
+}
+
+.technical-skills-03 {
+    background: url(../img/svg/technical-skills-03.svg);
+}
+
+.technical-skills-04 {
+    background: url(../img/svg/technical-skills-04.svg);
+}
+
+.technical-skills-01,
+.technical-skills-02,
+.technical-skills-03,
+.technical-skills-04{
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top center;
+}
+/* icon end */
+/* purple section end */
+/* section style end */
+
+header,
+footer {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.footer-container {
+    padding-top: 300px;
+}
+
+.footer-bottom {
+    padding-top: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    min-height: 100px;
+}
+
+.share-group {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.share-group ul li {
+    display: inline-block;
+    margin: 10px 10px;
+    height: 40px;
+    width: 40px;
+}
+.share-group ul a {
+    width: inherit;
+    height: inherit;
+    display: inline-block;
+}
+
+.share-weibo {
+    background: url(../img/svg/share/share_weibo.svg);
+}
+.share-weibo:hover {
+    background: url(../img/svg/share/share_weibo_hover.svg);
+}
+
+.share-qq {
+    background: url(../img/svg/share/share_qq.svg);
+}
+.share-qq:hover {
+    background: url(../img/svg/share/share_qq_hover.svg);
+}
+
+.share-facebook {
+    background: url(../img/svg/share/facebook.svg);
+}
+.share-facebook:hover {
+    background: url(../img/svg/share/facebook_hover.svg);
+}
+
+.share-email {
+    background: url(../img/svg/share/email.svg);
+}
+.share-email:hover {
+    background: url(../img/svg/share/email_hover.svg);
+}
+
+.share-weibo,
+.share-weibo:hover,
+.share-qq,
+.share-qq:hover,
+.share-facebook,
+.share-facebook:hover,
+.share-email,
+.share-email:hover {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center center;
+}
+
+.copyright {
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+/* footer style end */
