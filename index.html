@@ -187,8 +187,11 @@
 <h4 id="elasticsearch-plugin安装插件"><a href="#elasticsearch-plugin安装插件" class="headerlink" title="elasticsearch-plugin安装插件"></a>elasticsearch-plugin安装插件</h4><p>帮助elasticsearch-plugin -h<br>查看已安装插件elasticsearch-plugin list<br>查看所有可以安装的插件elasticsearch-plugin install -h</p>
 <h4 id="安装可视化插件head"><a href="#安装可视化插件head" class="headerlink" title="安装可视化插件head"></a>安装可视化插件head</h4><p>elasticsearch6.0不支持直接在线安装head插件，需要手动下载到本地,ps:nodejs自行安装，很多程序构建都需要，装机必备</p>
 <ul>
-<li>下载head插件<br>  git clone git://github.com/mobz/elasticsearch-head.git<br>  cd elasticsearch-head/</li>
-<li><p>安装grunt<br>  npm install -g grunt-cli</p>
+<li><p>下载head插件</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone git://github.com/mobz/elasticsearch-head.git</span><br><span class="line">cd elasticsearch-head/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装grunt</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g grunt-cli</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>grunt是基于Node.js的项目构建工具，可以进行打包压缩、测试、执行等等的工作，head插件就是通过grunt启动</p>
 </blockquote>
@@ -201,7 +204,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Data:    /usr/local/var/lib/elasticsearch/elasticsearch_zhengchubin/</span><br><span class="line">Logs:    /usr/local/var/log/elasticsearch/elasticsearch_zhengchubin.log</span><br><span class="line">Plugins: /usr/local/var/elasticsearch/plugins/</span><br><span class="line">Config:  /usr/local/etc/elasticsearch/</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>vi /usr/local/etc/elasticsearch/elasticsearch.yml<br>新增跨域支持<br>http.cors.enabled: true<br>http.cors.allow-origin: “*”<br>并启动elasticsearch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/local/etc/elasticsearch/elasticsearch.yml</span><br></pre></td></tr></table></figure>
+<p>新增跨域支持<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.cors.enabled: true  </span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br></pre></td></tr></table></figure></p>
+<p>并启动<em>elasticsearch</em></p>
 <ul>
 <li><p>运行head工程</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt server</span><br></pre></td></tr></table></figure>
