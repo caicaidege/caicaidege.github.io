@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>categories | 菜菜的博客</title>
+  <title>java操作elasticsearch | 菜菜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="你很菜，但很快乐">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="####概述  目前spring-boot-starter-data-elasticsearch还不支持elasticsearch6.0,所以接下来采用的是java原生操作的api   pom文件 org.elasticsearch.client版本号需和elasticsearch版本一直    123456789101112131415161718192021222324252627282930">
+<meta name="keywords" content="java elasticsearch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java操作elasticsearch">
+<meta property="og:url" content="http://yoursite.com/2018/02/14/java操作elasticsearch/index.html">
 <meta property="og:site_name" content="菜菜的博客">
-<meta property="og:description" content="你很菜，但很快乐">
+<meta property="og:description" content="####概述  目前spring-boot-starter-data-elasticsearch还不支持elasticsearch6.0,所以接下来采用的是java原生操作的api   pom文件 org.elasticsearch.client版本号需和elasticsearch版本一直    123456789101112131415161718192021222324252627282930">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-20T10:49:52.000Z">
+<meta property="og:updated_time" content="2018-02-14T09:02:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="你很菜，但很快乐">
+<meta name="twitter:title" content="java操作elasticsearch">
+<meta name="twitter:description" content="####概述  目前spring-boot-starter-data-elasticsearch还不支持elasticsearch6.0,所以接下来采用的是java原生操作的api   pom文件 org.elasticsearch.client版本号需和elasticsearch版本一直    123456789101112131415161718192021222324252627282930">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的博客" type="application/atom+xml">
   
@@ -142,20 +143,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-java操作elasticsearch" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      categories
+      java操作elasticsearch
     </h1>
   
 
         
-        <a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2017-12-20T09:50:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
+        <a href="/2018/02/14/java操作elasticsearch/" class="archive-article-date">
+  	<time datetime="2018-02-14T08:55:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-14</time>
 </a>
         
 
@@ -169,7 +170,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>####概述</p>
+<blockquote>
+<p>目前spring-boot-starter-data-elasticsearch还不支持elasticsearch6.0,所以接下来采用的是<br>java原生操作的api</p>
+</blockquote>
+<ul>
+<li>pom文件<blockquote>
+<p>org.elasticsearch.client版本号需和elasticsearch版本一直</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;elasticsearch-java&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;!-- Elasticsearch核心依赖包 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.elasticsearch.client&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;transport&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;6.2.1&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.12&lt;/version&gt;</span><br><span class="line">            &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;!-- https://mvnrepository.com/artifact/com.google.code.gson/gson --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;gson&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.8.0&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>java代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line">package com.example;</span><br><span class="line"></span><br><span class="line">import com.google.gson.JsonObject;</span><br><span class="line">import org.elasticsearch.action.delete.DeleteResponse;</span><br><span class="line">import org.elasticsearch.action.get.GetResponse;</span><br><span class="line">import org.elasticsearch.action.index.IndexResponse;</span><br><span class="line">import org.elasticsearch.action.search.SearchResponse;</span><br><span class="line">import org.elasticsearch.action.search.SearchType;</span><br><span class="line">import org.elasticsearch.action.update.UpdateResponse;</span><br><span class="line">import org.elasticsearch.client.transport.TransportClient;</span><br><span class="line">import org.elasticsearch.common.settings.Settings;</span><br><span class="line">import org.elasticsearch.common.transport.TransportAddress;</span><br><span class="line">import org.elasticsearch.common.xcontent.XContentFactory;</span><br><span class="line">import org.elasticsearch.common.xcontent.XContentType;</span><br><span class="line">import org.elasticsearch.index.query.QueryBuilders;</span><br><span class="line">import org.elasticsearch.search.SearchHit;</span><br><span class="line">import org.elasticsearch.search.SearchHits;</span><br><span class="line">import org.elasticsearch.transport.client.PreBuiltTransportClient;</span><br><span class="line">import org.junit.After;</span><br><span class="line">import org.junit.Before;</span><br><span class="line">import org.junit.Test;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.net.InetAddress;</span><br><span class="line">import java.net.UnknownHostException;</span><br><span class="line">import java.util.Date;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author zhengchubin</span><br><span class="line"> * @create 2018-02-14 下午3:18</span><br><span class="line"> **/</span><br><span class="line">public class ElasticsearchTest &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public final static String HOST = &quot;127.0.0.1&quot;;</span><br><span class="line"></span><br><span class="line">    public final static int PORT = 9300;//http请求的端口是9200，客户端是9300</span><br><span class="line"></span><br><span class="line">    private TransportClient client = null;</span><br><span class="line"></span><br><span class="line">    @Before</span><br><span class="line">    public void getConnect() throws UnknownHostException &#123;</span><br><span class="line">        //创建客户端</span><br><span class="line">        Settings settings = Settings.builder()</span><br><span class="line">                .put(&quot;client.transport.sniff&quot;, true)</span><br><span class="line">                .put(&quot;cluster.name&quot;, &quot;elasticsearch_zhengchubin&quot;).build();</span><br><span class="line">        client = new PreBuiltTransportClient(settings).addTransportAddress(</span><br><span class="line">                new TransportAddress(InetAddress.getByName(HOST), PORT));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 测试Elasticsearch客户端连接</span><br><span class="line">     * @throws UnknownHostException</span><br><span class="line">     */</span><br><span class="line">    @SuppressWarnings(&quot;resource&quot;)</span><br><span class="line">    @Test</span><br><span class="line">    public void testConnect() throws UnknownHostException &#123;</span><br><span class="line">        //创建客户端</span><br><span class="line">        Settings settings = Settings.builder()</span><br><span class="line">                .put(&quot;client.transport.sniff&quot;, true)</span><br><span class="line">                .put(&quot;cluster.name&quot;, &quot;elasticsearch_zhengchubin&quot;).build();</span><br><span class="line">        TransportClient client = new PreBuiltTransportClient(settings).addTransportAddress(</span><br><span class="line">                new TransportAddress(InetAddress.getByName(HOST), PORT));</span><br><span class="line">        System.out.println(client.toString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void addIndex1() throws IOException &#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;Elasticsearch connect info:&quot; + client.toString());</span><br><span class="line">        IndexResponse response = client.prepareIndex(&quot;msg&quot;, &quot;tweet&quot;, &quot;1&quot;).setSource(XContentFactory.jsonBuilder()</span><br><span class="line">                .startObject().field(&quot;userName&quot;, &quot;张三&quot;)</span><br><span class="line">                .field(&quot;sendDate&quot;, new Date())</span><br><span class="line">                .field(&quot;msg&quot;, &quot;你好李四&quot;)</span><br><span class="line">                .endObject()).get();</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;索引名称:&quot; + response.getIndex() + &quot;\n类型:&quot; + response.getType()</span><br><span class="line">                + &quot;\n文档ID:&quot; + response.getId() + &quot;\n当前实例状态:&quot; + response.status());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void addIndex2() &#123;</span><br><span class="line">        String jsonStr = &quot;&#123;&quot; +</span><br><span class="line">                &quot;\&quot;userName\&quot;:\&quot;张三\&quot;,&quot; +</span><br><span class="line">                &quot;\&quot;sendDate\&quot;:\&quot;2017-11-30\&quot;,&quot; +</span><br><span class="line">                &quot;\&quot;msg\&quot;:\&quot;你好李四\&quot;&quot; +</span><br><span class="line">                &quot;&#125;&quot;;</span><br><span class="line">        IndexResponse response = client.prepareIndex(&quot;weixin&quot;, &quot;tweet&quot;).setSource(jsonStr, XContentType.JSON).get();</span><br><span class="line">        System.out.println(&quot;json索引名称:&quot; + response.getIndex() + &quot;\njson类型:&quot; + response.getType()</span><br><span class="line">                + &quot;\njson文档ID:&quot; + response.getId() + &quot;\n当前实例json状态:&quot; + response.status());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void addIndex3() &#123;</span><br><span class="line">        Map&lt;String, Object&gt; map = new HashMap&lt;String,Object&gt;();</span><br><span class="line">        map.put(&quot;userName&quot;, &quot;张三&quot;);</span><br><span class="line">        map.put(&quot;sendDate&quot;, new Date());</span><br><span class="line">        map.put(&quot;msg&quot;, &quot;你好李四&quot;);</span><br><span class="line"></span><br><span class="line">        IndexResponse response = client.prepareIndex(&quot;momo&quot;, &quot;tweet&quot;).setSource(map).get();</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;map索引名称:&quot; + response.getIndex() + &quot;\n map类型:&quot; + response.getType()</span><br><span class="line">                + &quot;\n map文档ID:&quot; + response.getId() + &quot;\n当前实例map状态:&quot; + response.status());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 从索引库获取数据</span><br><span class="line">     */</span><br><span class="line">    @Test</span><br><span class="line">    public void getData1() &#123;</span><br><span class="line">        GetResponse getResponse = client.prepareGet(&quot;msg&quot;, &quot;tweet&quot;, &quot;1&quot;).get();</span><br><span class="line">        System.out.println(&quot;索引库的数据:&quot; + getResponse.getSourceAsString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 搜索</span><br><span class="line">     */</span><br><span class="line">    @Test</span><br><span class="line">    public void search1() &#123;</span><br><span class="line">        SearchResponse searchResponse = client.prepareSearch(&quot;momo&quot;)</span><br><span class="line">                .setTypes(&quot;tweet&quot;)</span><br><span class="line">                .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)</span><br><span class="line">                .setQuery(QueryBuilders.matchQuery(&quot;userName&quot;,&quot;张三&quot;))</span><br><span class="line">                .setFrom(0).setSize(20).setExplain(true)</span><br><span class="line">                .get();</span><br><span class="line">        SearchHits hits = searchResponse.getHits();</span><br><span class="line">        for (SearchHit hit : hits) &#123;</span><br><span class="line">            System.out.println(hit.getSourceAsString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 更新数据</span><br><span class="line">     */</span><br><span class="line">    @Test</span><br><span class="line">    public void updateData() &#123;</span><br><span class="line">        JsonObject jsonObject = new JsonObject();</span><br><span class="line"></span><br><span class="line">        jsonObject.addProperty(&quot;userName&quot;, &quot;王五&quot;);</span><br><span class="line">        jsonObject.addProperty(&quot;sendDate&quot;, &quot;2008-08-08&quot;);</span><br><span class="line">        jsonObject.addProperty(&quot;msg&quot;,&quot;你好,张三，好久不见&quot;);</span><br><span class="line"></span><br><span class="line">        UpdateResponse updateResponse = client.prepareUpdate(&quot;msg&quot;, &quot;tweet&quot;, &quot;1&quot;)</span><br><span class="line">                .setDoc(jsonObject.toString(),XContentType.JSON).get();</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;updateResponse索引名称:&quot; + updateResponse.getIndex() + &quot;\n updateResponse类型:&quot; + updateResponse.getType()</span><br><span class="line">                + &quot;\n updateResponse文档ID:&quot; + updateResponse.getId() + &quot;\n当前实例updateResponse状态:&quot; + updateResponse.status());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 删除数据</span><br><span class="line">     */</span><br><span class="line">    @Test</span><br><span class="line">    public void deleteData() &#123;</span><br><span class="line">        DeleteResponse deleteResponse = client.prepareDelete(&quot;msg&quot;, &quot;tweet&quot;, &quot;1&quot;).get();</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;deleteResponse索引名称:&quot; + deleteResponse.getIndex() + &quot;\n deleteResponse类型:&quot; + deleteResponse.getType()</span><br><span class="line">                + &quot;\n deleteResponse文档ID:&quot; + deleteResponse.getId() + &quot;\n当前实例deleteResponse状态:&quot; + deleteResponse.status());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @After</span><br><span class="line">    public void closeConnect() &#123;</span><br><span class="line">        if (null != client) &#123;</span><br><span class="line">            System.out.println(&quot;close...&quot;);</span><br><span class="line">            client.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h5><ul>
+<li><a href="https://www.cnblogs.com/sunny1009/articles/7887568.html" target="_blank" rel="noopener">Elasticsearch索引的创建、数据的增删该查操作</a></li>
+</ul>
+
       
 
       
@@ -177,6 +196,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java elasticsearch</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -227,7 +257,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/categories/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/14/java操作elasticsearch/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -239,6 +269,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/14/elasticsearch安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">elasticsearch安装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -261,7 +301,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="" data-title="categories" data-url="http://yoursite.com/categories/index.html"></div>
+	<div class="ds-thread" data-thread-key="java操作elasticsearch" data-title="java操作elasticsearch" data-url="http://yoursite.com/2018/02/14/java操作elasticsearch/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -313,7 +353,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
