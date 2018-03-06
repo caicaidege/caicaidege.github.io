@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="菜菜的博客">
 <meta property="og:description" content="主要记录常见的面试题以及解决方案   缓存穿透 查询一个不存在的key，访问到数据源如db，由于每次访问的key都不存在，每次请求都会访问到数据库。在大流量的情况下，会对db造成一定的压力    解决方案：首先对key进行限制，如常见的商品详情页，一般根据商品id进行缓存，而商品id是有规律的，如短期商品id不会超过999999999个，如超过则直接返回，不查询缓存以及db。对于符合要求的key">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-26T10:02:15.000Z">
+<meta property="og:updated_time" content="2018-03-02T08:04:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题备忘">
 <meta name="twitter:description" content="主要记录常见的面试题以及解决方案   缓存穿透 查询一个不存在的key，访问到数据源如db，由于每次访问的key都不存在，每次请求都会访问到数据库。在大流量的情况下，会对db造成一定的压力    解决方案：首先对key进行限制，如常见的商品详情页，一般根据商品id进行缓存，而商品id是有规律的，如短期商品id不会超过999999999个，如超过则直接返回，不查询缓存以及db。对于符合要求的key">
@@ -197,6 +197,25 @@
 </li>
 </ul>
 <p>解决方案：将缓存失效时间分散开，如在原定的失效时间上，加上一定的随机数来缓存，避免引发集体失效</p>
+<ul>
+<li>list的ConcurrentModificationException</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">// 出现java.util.ConcurrentModificationException</span><br><span class="line">    public List&lt;String&gt; m1(List&lt;String&gt; list) &#123;</span><br><span class="line">        for (String temp : list) &#123;</span><br><span class="line">            if (&quot;3&quot;.equals(temp)) &#123;</span><br><span class="line">                list.remove(temp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return list;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    // 出现java.util.ConcurrentModificationException</span><br><span class="line">    public List&lt;String&gt; m2(List&lt;String&gt; list) &#123;</span><br><span class="line">        Iterator&lt;String&gt; iterator = list.iterator();</span><br><span class="line">        while (iterator.hasNext()) &#123;</span><br><span class="line">            String temp = iterator.next();</span><br><span class="line">            if (&quot;3&quot;.equals(temp)) &#123;</span><br><span class="line">                list.remove(temp);</span><br><span class="line">//                iterator.remove();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        return list;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    //successful!</span><br><span class="line">    public List&lt;String&gt; m3(List&lt;String&gt; list) &#123;</span><br><span class="line">        for (int i = 0; i &lt; list.size(); i++) &#123;</span><br><span class="line">            if (&quot;3&quot;.equals(list.get(i))) &#123;</span><br><span class="line">                list.remove(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return list;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    // successful!</span><br><span class="line">    public List&lt;String&gt; m4(List&lt;String&gt; list) &#123;</span><br><span class="line">        Iterator&lt;String&gt; iterator = list.iterator();</span><br><span class="line">        while (iterator.hasNext()) &#123;</span><br><span class="line">            String temp = iterator.next();</span><br><span class="line">            if (&quot;3&quot;.equals(temp)) &#123;</span><br><span class="line">                iterator.remove();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>解决方案：主要是保持arraylist的Itr类中expectedModCount和modCount相同，数值进行同步。当两者数据不一样，在线程不安全的类中，会出现线程不安全的情况，所以检查到，及时抛出异常。fast-fail<br>for（String str: list）的实现是基于Iterator</p>
+<ul>
+<li><p>询问公司愿景，部门定位，该岗位的定位以及发展，是否有上升空间，技术栈</p>
+</li>
+<li><p>spring boot优点</p>
+</li>
+</ul>
+<p>解决方案：</p>
+<ol>
+<li>start.pom简化依赖配置</li>
+<li>自动化配置，自动化的java配置类替换了传统的xml配置</li>
+<li>嵌入式容器</li>
+<li>spring cloud的基础</li>
+<li>暴露监控端点</li>
+</ol>
 
       
 
@@ -279,6 +298,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/03/01/mapstruct使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          mapstruct使用
+        
+      </div>
+    </a>
   
   
     <a href="/2018/02/26/log4j2发送邮件/" id="article-nav-older" class="article-nav-link-wrap">
@@ -424,7 +452,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color2">log4j2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -432,7 +460,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">log4j2</a>
+                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">-mapstruct -java</a>
               </li>
             
             <div class="clearfix"></div>

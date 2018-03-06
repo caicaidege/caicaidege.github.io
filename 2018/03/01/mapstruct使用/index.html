@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>spring | 菜菜的博客</title>
+  <title>mapstruct使用 | 菜菜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="你很菜，但很快乐">
-<meta property="og:type" content="website">
-<meta property="og:title" content="spring">
-<meta property="og:url" content="http://yoursite.com/spring/index.html">
+  <meta name="description" content="mapstructMapStruct是一个代码生成器，它极大地简化了基于约定优于配置方法的Java bean类型之间的映射的实现。mapstruct通过定义映射接口，在编译过程中，会生成源对象到目标对象的转化方法。场景的场景在数据库对象domain转化为dto对象，使用beanutils之类的工具也可以胜任，但在特殊业务转换，如属性名字不匹配等，beanutils没有那么灵活。 代码如下pom.x">
+<meta name="keywords" content="-mapstruct -java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mapstruct使用">
+<meta property="og:url" content="http://yoursite.com/2018/03/01/mapstruct使用/index.html">
 <meta property="og:site_name" content="菜菜的博客">
-<meta property="og:description" content="你很菜，但很快乐">
+<meta property="og:description" content="mapstructMapStruct是一个代码生成器，它极大地简化了基于约定优于配置方法的Java bean类型之间的映射的实现。mapstruct通过定义映射接口，在编译过程中，会生成源对象到目标对象的转化方法。场景的场景在数据库对象domain转化为dto对象，使用beanutils之类的工具也可以胜任，但在特殊业务转换，如属性名字不匹配等，beanutils没有那么灵活。 代码如下pom.x">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-20T08:31:21.000Z">
+<meta property="og:updated_time" content="2018-03-01T10:16:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring">
-<meta name="twitter:description" content="你很菜，但很快乐">
+<meta name="twitter:title" content="mapstruct使用">
+<meta name="twitter:description" content="mapstructMapStruct是一个代码生成器，它极大地简化了基于约定优于配置方法的Java bean类型之间的映射的实现。mapstruct通过定义映射接口，在编译过程中，会生成源对象到目标对象的转化方法。场景的场景在数据库对象domain转化为dto对象，使用beanutils之类的工具也可以胜任，但在特殊业务转换，如属性名字不匹配等，beanutils没有那么灵活。 代码如下pom.x">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的博客" type="application/atom+xml">
   
@@ -142,20 +143,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-mapstruct使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      spring
+      mapstruct使用
     </h1>
   
 
         
-        <a href="/spring/index.html" class="archive-article-date">
-  	<time datetime="2017-12-20T08:28:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
+        <a href="/2018/03/01/mapstruct使用/" class="archive-article-date">
+  	<time datetime="2018-03-01T09:46:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-01</time>
 </a>
         
 
@@ -169,7 +170,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="mapstruct"><a href="#mapstruct" class="headerlink" title="mapstruct"></a>mapstruct</h4><p>MapStruct是一个代码生成器，它极大地简化了基于约定优于配置方法的Java bean类型之间的映射的实现。<br>mapstruct通过定义映射接口，在编译过程中，会生成源对象到目标对象的转化方法。场景的场景在数据库对象domain转化为dto对象，使用beanutils之类的工具也可以胜任，但在特殊业务转换，如属性名字不匹配等，beanutils没有那么灵活。</p>
+<h5 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h5><p>pom.xml,支持lombok<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">        &lt;org.mapstruct.version&gt;1.1.0.Final&lt;/org.mapstruct.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.mapstruct&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mapstruct-jdk8&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;org.mapstruct.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.mapstruct&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mapstruct-processor&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;org.mapstruct.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.12&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.16.18&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">    &lt;build&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;3.5.1&lt;/version&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;source&gt;1.8&lt;/source&gt;</span><br><span class="line">                    &lt;target&gt;1.8&lt;/target&gt;</span><br><span class="line">                    &lt;annotationProcessorPaths&gt;</span><br><span class="line">                        &lt;path&gt;</span><br><span class="line">                            &lt;groupId&gt;org.mapstruct&lt;/groupId&gt;</span><br><span class="line">                            &lt;artifactId&gt;mapstruct-processor&lt;/artifactId&gt;</span><br><span class="line">                            &lt;version&gt;$&#123;org.mapstruct.version&#125;&lt;/version&gt;</span><br><span class="line">                        &lt;/path&gt;</span><br><span class="line">                        &lt;!-- Add here Lombok dependancies if you use mapstruct and lombok --&gt;</span><br><span class="line">                        &lt;path&gt;</span><br><span class="line">                            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">                            &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">                            &lt;version&gt;1.16.18&lt;/version&gt;</span><br><span class="line">                        &lt;/path&gt;</span><br><span class="line">                    &lt;/annotationProcessorPaths&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">    &lt;/build&gt;</span><br></pre></td></tr></table></figure></p>
+<p>java代码，主要实现了对象里面包含对象，对象里面包含集合等场景,主要摘抄了几个关键地方的源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">@Data</span><br><span class="line">public class Car &#123;</span><br><span class="line"></span><br><span class="line">    private String make;</span><br><span class="line">    private int numberOfSeats;</span><br><span class="line">    private CarType type;</span><br><span class="line">    /**</span><br><span class="line">     * 包含对象</span><br><span class="line">     */</span><br><span class="line">    private Owner owner;</span><br><span class="line">    /**</span><br><span class="line">     * 包含集合</span><br><span class="line">     */</span><br><span class="line">    private List&lt;Wheel&gt; wheelList;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public Car(String make, int numberOfSeats, CarType type) &#123;</span><br><span class="line">        this.make = make;</span><br><span class="line">        this.numberOfSeats = numberOfSeats;</span><br><span class="line">        this.type = type;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@Data</span><br><span class="line">public class CarDto &#123;</span><br><span class="line"></span><br><span class="line">    private String make;</span><br><span class="line">    private int seatCount;</span><br><span class="line">    private String type;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    private String name;</span><br><span class="line"></span><br><span class="line">    private OwnerDto ownerDto;</span><br><span class="line"></span><br><span class="line">    private List&lt;WheelDto&gt; wheelDtoList;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>关键处理在*mapper中,uses = {WheelMapper.class}用于解决属性为集合的情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@Mapper(uses = &#123;WheelMapper.class&#125;)</span><br><span class="line">public interface CarMapper &#123;</span><br><span class="line"></span><br><span class="line">    CarMapper INSTANCE = Mappers.getMapper( CarMapper.class );</span><br><span class="line"></span><br><span class="line">    @Mapping(source = &quot;numberOfSeats&quot;, target = &quot;seatCount&quot;)</span><br><span class="line">    @Mapping(source = &quot;owner.ownerName&quot;, target = &quot;ownerDto.ownerName&quot;)</span><br><span class="line">    @Mapping(source = &quot;wheelList&quot;, target = &quot;wheelDtoList&quot;)</span><br><span class="line">    CarDto carToCarDto(Car car);</span><br><span class="line"></span><br><span class="line">    List&lt;CarDto&gt; carToCarDtoList(List&lt;Car&gt; carList);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Mapper</span><br><span class="line">public interface WheelMapper &#123;</span><br><span class="line"></span><br><span class="line">    WheelMapper INSTANCE = Mappers.getMapper( WheelMapper.class );</span><br><span class="line"></span><br><span class="line">    WheelDto wheelToWheelDto(Wheel wheel);</span><br><span class="line"></span><br><span class="line">    List&lt;WheelDto&gt; wheelToWheelDtoList(List&lt;Wheel&gt; wheels);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">    public void carToCarDto()&#123;</span><br><span class="line">        Car car = new Car(&quot;Morris&quot;, 5, CarType.SEDAN);</span><br><span class="line">        car.setOwner(new Owner(&quot;me&quot;));</span><br><span class="line">        Wheel wheel = new Wheel(&quot;lunzi&quot;);</span><br><span class="line">        List&lt;Wheel&gt; wheelList = new ArrayList&lt;&gt;();</span><br><span class="line">        wheelList.add(wheel);</span><br><span class="line">        car.setWheelList(wheelList);</span><br><span class="line">        CarDto carDto = CarMapper.INSTANCE.carToCarDto(car);</span><br><span class="line"></span><br><span class="line">        Assert.assertNotNull(carDto);</span><br><span class="line">        Assert.assertEquals(car.getMake(),carDto.getMake());</span><br><span class="line">        System.out.println(carDto.getName());</span><br><span class="line">        System.out.println(carDto.getOwnerDto().getOwnerName());</span><br><span class="line"></span><br><span class="line">        System.out.println(carDto.getWheelDtoList().size());</span><br><span class="line"></span><br><span class="line">        //list</span><br><span class="line">        List&lt;Car&gt; carList = new ArrayList&lt;Car&gt;();</span><br><span class="line">        carList.add(car);</span><br><span class="line"></span><br><span class="line">        List&lt;CarDto&gt; carDtoList = CarMapper.INSTANCE.carToCarDtoList(carList);</span><br><span class="line">        System.out.println(carDtoList.size());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ul>
+<li>对于同级且属性名以及类型系统的属性，会自动进行转化，不需要@Mapping进行显式的转化</li>
+</ul>
+<h5 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h5><p><a href="http://mapstruct.org/" target="_blank" rel="noopener">MapStruct</a><br><a href="https://github.com/mapstruct/mapstruct-examples" target="_blank" rel="noopener">MapStruct-example</a></p>
+
       
 
       
@@ -177,6 +187,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">-mapstruct -java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -227,7 +248,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/spring/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/01/mapstruct使用/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -239,6 +260,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/26/面试题备忘/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">面试题备忘</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -261,7 +292,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="" data-title="spring" data-url="http://yoursite.com/spring/index.html"></div>
+	<div class="ds-thread" data-thread-key="mapstruct使用" data-title="mapstruct使用" data-url="http://yoursite.com/2018/03/01/mapstruct使用/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -313,7 +344,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
